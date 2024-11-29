@@ -54,7 +54,7 @@ const TodoItem: React.FC<Props> = ({ users, setUsers }) => {
       <div className="mt-20 grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 px-4">
         {
           users?.map((data:Data)=>(
-             <Singleitem key={data.id} data={data} setUsers={setUsers} />
+             <Singleitem key={data.id} users={users} data={data} setUsers={setUsers} />
           ))
         }
       </div>
