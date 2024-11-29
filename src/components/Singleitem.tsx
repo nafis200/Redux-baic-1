@@ -1,5 +1,16 @@
 
 
+import { useRef } from 'react';
+import { SplitButton } from 'primereact/splitbutton';
+import { MenuItem } from 'primereact/menuitem';
+import { Toast } from 'primereact/toast';
+
+import 'primereact/resources/themes/fluent-light/theme.css';  // Fluent Theme
+import 'primereact/resources/primereact.min.css';             // Core Styles
+import 'primeicons/primeicons.css';                           // Icons
+
+
+
 interface Data {
     userId: number;
     id: number;
@@ -13,10 +24,32 @@ interface Data {
   }
   
 
-const Singleitem:React.FC<Props>= ({data,setUsers})=> { 
+const Singleitem:React.FC<Props>= ({data,setUsers})=> 
+{ 
     const {userId,id,title,body} = data
 
+    const toast = useRef<Toast>(null);
+    const items: MenuItem[] = [
+        {
+            label: 'Update',
+            icon: 'pi pi-refresh',
+            command: () => {
+                toast.current.show({ severity: 'success', summary: 'Updated', detail: 'Data Updated' });
+            }
+        },
+        {
+            label: 'Delete',
+            icon: 'pi pi-times',
+            command: () => {
+                toast.current.show({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted' });
+            }
+        }
+    ];
+
+  
+
     return (
+        <>
         <div className="card bg-base-100 w-96 shadow-xl">
         <figure>
           <img
@@ -31,11 +64,17 @@ const Singleitem:React.FC<Props>= ({data,setUsers})=> {
           <p> <span className="font-bold">Title</span> {title}</p>
           <p> <span className="font-bold">description:</span> {body}</p>
           <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
+            {/* <div className="badge badge-outline">Fashion</div>
+            <div className="badge badge-outline">Products</div> */}
+            <Toast ref={toast}></Toast>
+            <SplitButton className='bg-blue-500 p-2 rounded-xl text-white' label="Change" model={items} />
           </div>
         </div>
       </div>
+          
+     
+
+        </>
     );
 };
 
