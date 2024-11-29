@@ -2,11 +2,13 @@ import { useRef, useState } from "react";
 import { SplitButton } from "primereact/splitbutton";
 import { MenuItem } from "primereact/menuitem";
 import { Toast } from "primereact/toast";
-import { Sidebar } from 'primereact/sidebar';
+import { Sidebar } from "primereact/sidebar";
 
 import "primereact/resources/themes/fluent-light/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+
+import { FormEvent } from "react";
 
 interface Data {
   userId: number;
@@ -37,23 +39,31 @@ const Singleitem: React.FC<Props> = ({ users, data, setUsers }) => {
   };
 
   const UpdateData = (): void => {
-    setVisible(true); 
+    setVisible(true);
   };
 
+  const handleLogin = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email,password);
+    
+  };
 
   const items: MenuItem[] = [
     {
       label: "Update",
       icon: "pi pi-refresh",
       command: () => {
-        UpdateData(); 
+        UpdateData();
       },
     },
     {
       label: "Delete",
       icon: "pi pi-times",
       command: () => {
-        deleteData(data); 
+        deleteData(data);
       },
     },
   ];
@@ -89,9 +99,41 @@ const Singleitem: React.FC<Props> = ({ users, data, setUsers }) => {
 
       <Sidebar visible={visible} onHide={() => setVisible(false)}>
         <h2>Update Data</h2>
-        <p>
-          You can update the details of the selected data here.
-        </p>
+        <form onSubmit={handleLogin}  className="space-y-4">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-bold md:text-xl">Title</span>
+            </label>
+            <input
+              type="text"
+              name="email"
+              placeholder="Title"
+              className="input input-bordered w-full"
+             
+            />
+          </div>
+
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-bold md:text-xl ">Description</span>
+            </label>
+            <div className="relative">
+              <input
+                name="password"
+                placeholder="Description"
+                className="input input-bordered w-full"
+                
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="btn bg-green-400 hover:bg-orange-500 w-full"
+          >
+            Login
+          </button>
+        </form>
       </Sidebar>
     </div>
   );
