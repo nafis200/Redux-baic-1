@@ -10,6 +10,8 @@ import "primeicons/primeicons.css";
 
 import { FormEvent } from "react";
 
+import { Image } from "primereact/image";
+
 interface Data {
   userId: number;
   id: number;
@@ -42,13 +44,21 @@ const Singleitem: React.FC<Props> = ({ users, data, setUsers }) => {
     setVisible(true);
   };
 
-  const handleLogin = (event: FormEvent<HTMLFormElement>) => {
+  const handleLogin = (event: FormEvent<HTMLFormElement>, data: Data) => {
     event.preventDefault();
     const form = event.currentTarget;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password);
-    
+
+    if (email) {
+      data.title = email;
+    }
+
+    if (password) {
+      data.body = password;
+    }
+
+    setVisible(false);
   };
 
   const items: MenuItem[] = [
@@ -67,13 +77,14 @@ const Singleitem: React.FC<Props> = ({ users, data, setUsers }) => {
       },
     },
   ];
-
+  
   return (
     <div className="card bg-base-100 w-96 shadow-xl">
       <figure>
-        <img
+        <Image
           src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
+          alt="Image"
+          preview
         />
       </figure>
       <div className="card-body">
@@ -99,7 +110,7 @@ const Singleitem: React.FC<Props> = ({ users, data, setUsers }) => {
 
       <Sidebar visible={visible} onHide={() => setVisible(false)}>
         <h2>Update Data</h2>
-        <form onSubmit={handleLogin}  className="space-y-4">
+        <form onSubmit={(e) => handleLogin(e, data)} className="space-y-4">
           <div className="form-control">
             <label className="label">
               <span className="label-text font-bold md:text-xl">Title</span>
@@ -109,20 +120,20 @@ const Singleitem: React.FC<Props> = ({ users, data, setUsers }) => {
               name="email"
               placeholder="Title"
               className="input input-bordered w-full"
-             
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold md:text-xl ">Description</span>
+              <span className="label-text font-bold md:text-xl ">
+                Description
+              </span>
             </label>
             <div className="relative">
               <input
                 name="password"
                 placeholder="Description"
                 className="input input-bordered w-full"
-                
               />
             </div>
           </div>
@@ -131,7 +142,7 @@ const Singleitem: React.FC<Props> = ({ users, data, setUsers }) => {
             type="submit"
             className="btn bg-green-400 hover:bg-orange-500 w-full"
           >
-            Login
+            Submitted
           </button>
         </form>
       </Sidebar>
