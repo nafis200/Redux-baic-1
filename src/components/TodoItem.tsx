@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import Singleitem from "./Singleitem";
 
 interface Data {
   userId: number;
@@ -20,7 +21,7 @@ const TodoItem: React.FC<Props> = ({ users, setUsers }) => {
     const filteredData: Data[] = users.filter((data) =>
       data.title.toLowerCase().includes(search.toLowerCase())
     );
-
+    setSearch("");
     if (filteredData.length === 0) {
       Swal.fire({
         title: "Sorry",
@@ -31,7 +32,6 @@ const TodoItem: React.FC<Props> = ({ users, setUsers }) => {
     }
 
     setUsers(filteredData);
-    setSearch("");
   };
 
   return (
@@ -51,7 +51,13 @@ const TodoItem: React.FC<Props> = ({ users, setUsers }) => {
           Search
         </button>
       </div>
-      <h1>{users.length}</h1>
+      <div className="mt-20 grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 px-4">
+        {
+          users?.map((data:Data)=>(
+             <Singleitem key={data.id} data={data} setUsers={setUsers} />
+          ))
+        }
+      </div>
     </div>
   );
 };
