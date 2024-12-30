@@ -1,11 +1,25 @@
+import { decrement, increment } from "./redux/features/counter/couterSlice";
+import { useAppDispatch, useAppSelector } from "./redux/hook";
 
-import React from 'react';
-import Todo from './components/Todo';
 
-const App:React.FC = () => {
+const App: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const {count} = useAppSelector((state)=> state.counter)
+
+  const handleIncrement = () => {
+    dispatch(increment());
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrement())
+  }
+
   return (
     <div>
-       <Todo/>
+      <button onClick={handleIncrement} className="btn">Increment</button>
+      <div>{count}</div>
+      <button onClick={handleDecrement} className="btn">decrement</button>
     </div>
   );
 };
