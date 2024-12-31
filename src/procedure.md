@@ -45,6 +45,12 @@ create hook.ts at redux folder beside store.ts
 
 create useAppSelector hooks and use app.tsx useAppSelector insteaf useSelector
 
+how to use payload
+
+add counter slice action payload
+
+counterSlice e console log ache second parameter payload
+
 1. export {} must be given
 2. use only the name
 

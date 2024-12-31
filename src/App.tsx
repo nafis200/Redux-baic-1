@@ -7,8 +7,8 @@ const App: React.FC = () => {
 
   const {count} = useAppSelector((state)=> state.counter)
 
-  const handleIncrement = () => {
-    dispatch(increment());
+  const handleIncrement = (amount: number ) => {
+    dispatch(increment(amount));
   };
 
   const handleDecrement = () => {
@@ -17,7 +17,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <button onClick={handleIncrement} className="btn">Increment</button>
+      <button onClick={()=>handleIncrement(5)} className="btn">Increment</button>
       <div>{count}</div>
       <button onClick={handleDecrement} className="btn">decrement</button>
     </div>
