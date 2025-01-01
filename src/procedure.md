@@ -233,3 +233,77 @@ and write function getmiddleware
 it connect store
 
 now ami logger state action pacchi
+
+
+shadcn Ui 
+
+new york
+neutral 
+yes
+
+
+react-router-dom setup
+
+npm i react-router-dom react-hook-form
+
+src --> routes ---> route.tsx
+
+ta main e import korte hobe
+
+<!-- handle dark mode 24-7 -->
+
+implement dark mode shadcn
+
+make provider folder then make theme-proider.tsx and set code
+
+wrap themeProvider into main.tsx
+
+for night light make mode-toggle.tsx and its give typescript error
+
+useTheme import theme provider.tsx
+
+now install dropdown menu
+
+
+
+<!-- command -->
+
+npx shadcn@latest add [dropdown menu]
+
+mode toggle import at app.tsx
+
+<!-- initial Todo Slice And initial state -->
+
+redux toolkit er quick start
+
+create task folder into redux ---> feature ---> task folder and create taskSlice.tsx
+
+now create reducer
+
+import it at store.ts
+
+types.ts name ekta interface create kori
+
+app.tsx e task ta kori
+
+taskSlice selectTask name state create korechi
+
+now we use app.tsx selectask which we made taskSlice.
+
+tailwind-merge cls very popular
+
+goto clsx documentation
+
+shadcn Ui theke dialogue anchi
+
+task er module addtask.tsx ene shadn ui code ta push kori
+
+theme color change 
+
+index.css replace korbo
+
+change color code
+
+shadcn ui basically hook form use kore
+
+dialogue er majkhane hook form use kori

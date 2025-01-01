@@ -6,6 +6,10 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@redux-middleware](https://redux.js.org/introduction/getting-started) uses [SWC](redux-org-middleware) for Fast Refresh
+- [@shadcn ui](https://ui.shadcn.com/) uses [SWC](shadcnUi) for Fast Refresh
+- [@Redux toolkit](https://redux-toolkit.js.org/) uses [SWC](toolkit) for Fast Refresh
+- [@clsx](https://www.npmjs.com/package/clsx) uses [SWC](toolkit) for Fast Refresh
 
 ## Expanding the ESLint configuration
 
