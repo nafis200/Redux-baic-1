@@ -10,6 +10,7 @@ Currently, two official plugins are available:
 - [@shadcn ui](https://ui.shadcn.com/) uses [SWC](shadcnUi) for Fast Refresh
 - [@Redux toolkit](https://redux-toolkit.js.org/) uses [SWC](toolkit) for Fast Refresh
 - [@clsx](https://www.npmjs.com/package/clsx) uses [SWC](toolkit) for Fast Refresh
+- [@uuid](https://www.npmjs.com/package/uuid) uses [SWC](uuid) for Fast Refresh
 
 ## Expanding the ESLint configuration
 

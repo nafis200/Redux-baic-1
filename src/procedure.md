@@ -307,3 +307,21 @@ change color code
 shadcn ui basically hook form use kore
 
 dialogue er majkhane hook form use kori
+
+<!-- 25-1 -->
+
+Create foem addTask.tsx
+
+task SLice e reducer add korbo
+
+addtask form er console log er data ami taskSlice addtask reducer e sent korbo
+
+addTask er kaj complete kore eke export kore dibo
+
+addTask.tsx e useAppdispatch ante hobe
+
+form theke sent kore dite hobe AppDispatch er maddome
+
+taskSlice e id add korechi
+
+<!-- for differnet generate id we use uuid -->
