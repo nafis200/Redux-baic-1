@@ -23,7 +23,7 @@ import {
   type FieldValues,
   type SubmitErrorHandler,
 } from "react-hook-form";
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Select,
@@ -32,11 +32,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useAppDispatch } from "@/redux/hook";
+import { useAppDispatch } from "@/redux1/hook";
 import { addTask } from "./taskSlice";
 import type { ITask } from "@/types";
+import { useCreateTaskMutation } from "@/redux/api/baseapi";
 
 export function AddtaskModal() {
+
+  const [createTask, {data,isLoading,isError}] = useCreateTaskMutation()
+
+  const [open, setOpen] = useState(false);
   const form = useForm();
 
   const dispatch = useAppDispatch();
@@ -44,13 +49,24 @@ export function AddtaskModal() {
   const [date, setDate] = React.useState<Date | undefined>();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit: SubmitErrorHandler<FieldValues> = (data: any) => {
-    console.log({ ...data, date });
+  const onSubmit: SubmitErrorHandler<FieldValues> = async(data: any) => {
+    
+    const taskData = {
+      ...data,
+      isCompleted: false,
+    }
+    const res = await createTask(taskData).unwrap()
+
+    console.log("Inside submit function",res);
+    
+
     dispatch(addTask(data as ITask));
+    setOpen(false);
+    form.reset();
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>

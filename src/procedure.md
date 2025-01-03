@@ -334,3 +334,89 @@ elta pick baniye sob niye asbo.
 
 make createTask data
 
+<!-- s -->
+
+select task e filter korchi
+
+if else 
+
+<!-- Magic of Extra Reducers -->
+
+form er data clean hocche na pasapasi load nicche na
+
+Form er open close Dialouge er upor dependent
+
+Dialogue open close name duita method ache
+
+
+Local State Vs Server State
+
+When we work RTK
+
+
+createSlice ===> Local State
+
+when we make end points ===> server state
+
+
+server State RTK QUERY
+
+RTK QUery habdle DAta fetching + Caching
+
+Suppose you have cards product add kortcen
+
+its your local machine
+
+
+
+<!-- RTK QUERY -->
+
+All code clean
+
+redux --> api folder --> baseapi.ts
+
+feature e userApi and userSlice create kori
+
+Baseapi e first import kori
+
+and baseApi kaj kori
+
+connecting to baseapi
+
+connect store.ts
+
+App.tsx call its
+
+handlemutation
+
+baseapi e post create kori
+
+addtask.tsx e kaj ta kori
+
+createTask e taskdata ta sent kori
+
+<!-- reload dewa lagbe -->
+
+For cahcing redux data.
+
+add howar sathe sathe update
+
+use cache tags
+
+now baseapi work tagtypes 
+
+getTasks e provideTags dite hobe.
+
+add InvalidatesTags
+
+pollingdata at app.tsx very interesting 
+
+
+
+
+
+
+
+
+
+
