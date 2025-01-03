@@ -18,7 +18,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
-import { useForm } from "react-hook-form";
+import {
+  useForm,
+  type FieldValues,
+  type SubmitErrorHandler,
+} from "react-hook-form";
 import React from "react";
 
 import {
@@ -30,18 +34,19 @@ import {
 } from "@/components/ui/select";
 import { useAppDispatch } from "@/redux/hook";
 import { addTask } from "./taskSlice";
+import type { ITask } from "@/types";
 
 export function AddtaskModal() {
   const form = useForm();
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const [date, setDate] = React.useState<Date | undefined>();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = (data: any) => {
+  const onSubmit: SubmitErrorHandler<FieldValues> = (data: any) => {
     console.log({ ...data, date });
-    dispatch(addTask(data))
+    dispatch(addTask(data as ITask));
   };
 
   return (
@@ -107,13 +112,9 @@ export function AddtaskModal() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="Low">
-                        Low
-                      </SelectItem>
+                      <SelectItem value="Low">Low</SelectItem>
                       <SelectItem value="medium">medium</SelectItem>
-                      <SelectItem value="high">
-                        High
-                      </SelectItem>
+                      <SelectItem value="high">High</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

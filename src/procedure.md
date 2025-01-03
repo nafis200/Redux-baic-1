@@ -325,3 +325,12 @@ form theke sent kore dite hobe AppDispatch er maddome
 taskSlice e id add korechi
 
 <!-- for differnet generate id we use uuid -->
+
+<!-- TaskSlice do better option -->
+
+TaskSilce e ekta draft make korbo
+
+elta pick baniye sob niye asbo.
+
+make createTask data
+
